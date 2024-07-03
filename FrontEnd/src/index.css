@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+  background-color: #111;
+  color: #fff;
+}
+
+.glassmorphism{
+  border-radius: 6px;
+background: #292929;
+box-shadow:  8px 8px 16px #202020,
+             -8px -8px 16px #323232;
+}
