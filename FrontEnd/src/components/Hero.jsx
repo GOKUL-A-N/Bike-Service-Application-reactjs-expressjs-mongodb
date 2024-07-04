@@ -3,7 +3,7 @@ import HeroImg from "../assets/hero-img.jpg"
 
 const Hero = () => {
   return (
-    <div className='h-screen w-full flex flex-col md:flex-row items-center justify-center bg-[#191919] '>
+    <div className='md:h-screen w-full flex flex-col md:flex-row items-center justify-center bg-[#191919] '>
         <div className='md:w-1/2 flex flex-col bg-transparent p-4'>
             <h1 className='ml-1 md:ml-14 text-[28px] md:text-[58px] font-bold'>Tuned To <span className='text-[#2ef171]'>Throttle</span> </h1>
             <p className='ml-1 md:ml-14 text-[14px]'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis earum labore molestias, pariatur voluptatem sint qui at eligendi saepe laudantium incidunt blanditiis mollitia tenetur. Accusamus esse qui odit quas! Architecto quaerat a iste labore, voluptatum eligendi doloribus nesciunt et.</p><br />
