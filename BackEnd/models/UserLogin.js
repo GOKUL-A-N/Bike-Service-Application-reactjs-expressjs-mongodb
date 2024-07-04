@@ -1,5 +1,5 @@
 // const mongoose = require('mongoose')
-import mongoose from "mongoose";
+import mongoose, { Mongoose } from "mongoose";
 
 const userLoginSchema = mongoose.Schema(
     {
@@ -16,9 +16,12 @@ const userLoginSchema = mongoose.Schema(
             type: 'String',
             required: true,
         },
-        service: {
-            type: 'String',
-        },
+        service: [
+            {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "servicesSchema",
+            }
+        ],  
     },
     {
         timestamps: true,

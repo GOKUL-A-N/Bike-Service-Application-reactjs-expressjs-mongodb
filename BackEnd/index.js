@@ -2,7 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import { PORT,MongoDBURL } from './config.js';
 import {userLoginRouter}  from './routes/userRouter.js';
-
+import { serviceRouter } from './routes/serviceRouter.js';
 
 const app = express();
 
@@ -13,6 +13,8 @@ app.get('/', (req, res) => {
 })
 
 app.use('/user',userLoginRouter);
+
+app.use('/service',serviceRouter);
 
 mongoose
     .connect(MongoDBURL)

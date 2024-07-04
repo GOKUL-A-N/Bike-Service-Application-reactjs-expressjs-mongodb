@@ -44,3 +44,50 @@ export const registerUserController = async (req,res) => {
     }
 }
 
+// logging in a user
+export const loginUserController = async (req,res) => {
+    try{
+        const {email,mobile,password} = req.body;
+
+        // validating the inputs
+        if(!email || !mobile || !password){
+            return res.status(400).send({
+                success: false,
+                message: "Please enter all your details"
+            });
+        }
+
+        const user = await userLogins.findOne({email});
+
+        if(!user){
+            return res.status(400).send({
+                success: false,
+                message: "User not found",
+            });
+        }
+
+        // checking mobile and password
+        const isMatch = await bcrypt.compare(password, user.password);
+        if(user.mobile != mobile && isMatch){
+            return res.status(401).send({
+                success: false,
+                message: "Mobile or password incorrect",
+            })
+        }
+
+        return res.status(200).send({
+            success:true,
+            message: "Login successful",
+            user,
+        });
+
+    }catch(err){
+        console.log(err.message);
+        return res.status(500).send({
+            success: false,
+            message: " Error in register call back",
+            err,
+        })
+    }
+}
+
