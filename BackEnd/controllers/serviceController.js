@@ -38,7 +38,7 @@ export const addService = async (req,res) => {
     }
 }
 
-// showing history of orders
+// showing history of orders for owner
 export const showServiceToOwner = async (req,res) => {
     try{
 

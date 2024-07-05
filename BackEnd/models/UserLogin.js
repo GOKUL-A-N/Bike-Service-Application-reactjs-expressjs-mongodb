@@ -18,8 +18,8 @@ const userLoginSchema = mongoose.Schema(
         },
         service: [
             {
-                type: mongoose.Schema.Types.ObjectId,
-                ref: "servicesSchema",
+                type: mongoose.Types.ObjectId,
+                ref: "Service",
             }
         ],  
     },
