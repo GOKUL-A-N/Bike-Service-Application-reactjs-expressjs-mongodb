@@ -8,7 +8,7 @@ const AllBookings = () => {
         <div className='h-screen'>
             <Navbar />
             <div className='flex flex-col items-center justify-start mt-10  w-full'>
-            <h1 className=' text-[28px] md:text-[38px] font-bold'>All Bookkings</h1><br />
+            <h1 className=' text-[28px] md:text-[38px] font-bold'>All Bookings</h1><br />
             <ServiceCard history={history} />
         </div>
         </div>

@@ -5,6 +5,8 @@ import AllBookings from "./pages-client/AllBookings"
 import Login from "./pages-client/Login"
 import SignUp from "./pages-client/SignUp"
 import {Routes , Route} from "react-router-dom"
+import ShowBookings from './page-owner/ShowBookings'
+import BookService from './pages-client/BookService'
 
 const App = () => {
   return (
@@ -15,6 +17,8 @@ const App = () => {
         <Route path='/home' element={<Home />} />
         <Route path='/history' element={<History />} />
         <Route path='/allbookings' element={<AllBookings />} />
+        <Route path='/ownerbookings' element={<ShowBookings />} />
+        <Route path="/bookservice" element={<BookService />} />
       </Routes>
     </div>
   )
