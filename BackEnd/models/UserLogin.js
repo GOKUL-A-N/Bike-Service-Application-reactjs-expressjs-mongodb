@@ -1,5 +1,5 @@
 // const mongoose = require('mongoose')
-import mongoose, { Mongoose } from "mongoose";
+import mongoose from "mongoose";
 
 const userLoginSchema = mongoose.Schema(
     {

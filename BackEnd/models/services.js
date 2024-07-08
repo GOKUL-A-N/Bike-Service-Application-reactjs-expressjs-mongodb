@@ -14,7 +14,7 @@ const servicesSchema = mongoose.Schema(
             type: 'String',
             required: true,
         },
-        user:{
+        id:{
             type: mongoose.Types.ObjectId,
             ref:"userLogin",
             required : [true,"user is required"],

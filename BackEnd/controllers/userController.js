@@ -39,7 +39,7 @@ export const registerUserController = async (req,res) => {
         return res.status(500).send({
             message: "Error saving user",
             success: false,
-            error,
+            err,
         });
     }
 }

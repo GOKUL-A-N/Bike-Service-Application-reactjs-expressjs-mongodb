@@ -1,4 +1,4 @@
-// const mongoose = require('mongoose')
+import mongoose from "mongoose";
 
 const ServiceProviderLoginSchema = mongoose.Schema(
     {
@@ -7,15 +7,7 @@ const ServiceProviderLoginSchema = mongoose.Schema(
             required: true,
             unique: true,
         },
-        mobile:{
-            type: 'Integer',
-            required: true,
-        },
         password:{
-            type: 'String',
-            required: true,
-        },
-        service: {
             type: 'String',
             required: true,
         },
