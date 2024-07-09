@@ -7,6 +7,7 @@ import SignUp from "./pages-client/SignUp"
 import {Routes , Route} from "react-router-dom"
 import ShowBookings from './page-owner/ShowBookings'
 import BookService from './pages-client/BookService'
+import OwnerLogin from './page-owner/OwnerLogin'
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
         <Route path='/allbookings' element={<AllBookings />} />
         <Route path='/ownerbookings' element={<ShowBookings />} />
         <Route path="/bookservice" element={<BookService />} />
+        <Route path='/ownerLogin' element={<OwnerLogin />} />
       </Routes>
     </div>
   )

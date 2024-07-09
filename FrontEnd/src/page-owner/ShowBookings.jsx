@@ -1,7 +1,37 @@
-import React from "react";
-import { ownerInfo } from "../constants";
+import React,{useState,useEffect} from "react";
+import axios from "axios";
+import {useNavigate} from "react-router-dom"
+// import { ownerInfo } from "../constants";
 
 const ShowBookings = () => {
+
+  const [services,setServices] = useState([])
+
+  const navigate = useNavigate()
+
+  const allServices = async () => {
+    try{
+      const {data} = await axios.get("http://localhost:3000/service/allService")
+
+      if(data?.success){
+        setServices(data?.serv)
+        console.log(services);
+      }
+
+    }catch(err){
+      console.log(err);
+    }
+  }
+
+  useEffect(() => {
+    allServices();
+  },[])
+
+  const handleClick = async (id) => {
+    await axios.put(`http://localhost:3000/service/editUserStatus/${id}`)
+    navigate("/ownerbookings")
+  }
+
   return (
     <div>
       <div className="h-screen">
@@ -11,14 +41,16 @@ const ShowBookings = () => {
           </h1>
           <br />
           <table>
-            {ownerInfo.map((h, index) => {
+            {services.map((h) => {
               return (
                 <tr
-                  key={index}
+                  key={h._id}
                   className=" rounded-md odd:bg-[#121212] even:bg-[#191919] text-[10px] sm:text-[13px] md:text-[16px] font-semibold tabledata"
                 >
-                  <td className="p-3 pr-28 ">{h.serviceName}</td>
-                  <td className="p-3 ">{h.date}</td>
+                  <td className="p-3 pr-28 ">{h.bikeName}</td>
+                  <td className="p-3 pr-28 ">{h.email}</td>
+                  <td className="p-3 pr-28 ">{h.service}</td>
+                  <td className="p-3 ">{h.expectedDate}</td>
                   <td
                     className="p-3"
                     style={{
@@ -32,11 +64,9 @@ const ShowBookings = () => {
                   >
                     {h.status}
                   </td>
-                  <td className="p-3">
-                    {h.userEmail}
-                  </td>
+                  
                   <td>
-                    <button className="p-3 hover:animate-pulse bg-[#2ef171] w-fit text-black font-semibold rounded-r-md">Edit Status</button>
+                    <button className="p-3 hover:animate-pulse bg-[#2ef171] w-fit text-black font-semibold rounded-r-md" onClick={handleClick(h._id)}>Mark as completed</button>
                   </td>
                 </tr>
               );

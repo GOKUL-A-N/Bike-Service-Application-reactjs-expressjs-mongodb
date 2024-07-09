@@ -1,5 +1,4 @@
 import { ownerLogin } from "../models/ServiceProviderLogin.js";
-import { serviceModel } from "../models/services.js";
 import bcrypt from "bcrypt";
 
 

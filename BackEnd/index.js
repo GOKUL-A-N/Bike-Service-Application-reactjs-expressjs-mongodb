@@ -4,11 +4,14 @@ import { PORT,MongoDBURL } from './config.js';
 import {userLoginRouter}  from './routes/userRouter.js';
 import { serviceRouter } from './routes/serviceRouter.js';
 import { ownerLoginRouter } from './routes/ownerRouter.js';
+import cors from "cors";
 
 const app = express();
 
 // declared for json data format
 app.use(express.json());
+
+app.use(cors());
 
 // declared for verifying the working of backend
 app.get('/', (req, res) => {

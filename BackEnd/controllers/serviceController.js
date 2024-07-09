@@ -7,10 +7,10 @@ import { userLogins } from "../models/UserLogin.js";
 export const addService = async (req, res) => {
     try {
         
-        const { email, expectedDate, service, id } = req.body;
+        const { bikeName, email, expectedDate, service, id } = req.body;
         
         // validating the required data
-        if (!email || !expectedDate || !service) {
+        if (!bikeName || !email || !expectedDate || !service) {
             return res.status(400).send({
                 success: false,
                 message: "Do provide all details",
@@ -27,7 +27,7 @@ export const addService = async (req, res) => {
             })
         }
 
-        const newService = new serviceModel({ service, "status": "not started yet", expectedDate, id })
+        const newService = new serviceModel({ bikeName , service, "status": "not started yet", expectedDate,email, id })
         const session = await mongoose.startSession();
         session.startTransaction();
         await newService.save({ session });

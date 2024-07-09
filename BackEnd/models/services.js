@@ -2,6 +2,10 @@ import mongoose from "mongoose";
 
 const servicesSchema = mongoose.Schema(
     {
+        bikeName:{
+            type: 'string',
+            required: true,
+        },
         service:{
             type: 'String',
             required : [true,"service is required"],
@@ -11,6 +15,10 @@ const servicesSchema = mongoose.Schema(
             required: true,
         },
         expectedDate:{
+            type: 'String',
+            required: true,
+        },
+        email:{
             type: 'String',
             required: true,
         },
