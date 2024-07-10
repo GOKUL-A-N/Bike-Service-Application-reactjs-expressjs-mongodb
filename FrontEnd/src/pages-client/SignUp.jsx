@@ -1,7 +1,8 @@
-import React,{useState , useEffect} from 'react'
+import React,{useState} from 'react'
 import {useNavigate} from 'react-router-dom';
 import axios from 'axios';
 import {toast } from 'react-hot-toast'
+import { Link } from 'react-router-dom';
 
 
 const SignUp = () => {
@@ -51,7 +52,7 @@ const SignUp = () => {
                 <input type='text' placeholder='Mobile' name='mobile' value={inputs.mpbile} onChange={handleChange} className='bg-transparent outline-0 border-b-2 border-[#2ef171] ' /><br />
                 <input type='password' placeholder='Password' name='password' value={inputs.password} onChange={handleChange} className='bg-transparent outline-0 border-b-2 border-[#2ef171] ' /><br />
                 <button type='submit' className='pl-4 pr-4 m-3 pt-1 pb-1 bg-[#2ef171] rounded-md font-semibold'>Sign Up</button>
-                <p className='text-[12px]'>Have an account?<span className='underline text-[#2ef171]'><a href="">Login</a></span></p>
+                <p className='text-[12px]'>Have an account?<span className='underline text-[#2ef171]'><Link to="/">Login</Link></span></p>
             </form>
         </div>
     </div>

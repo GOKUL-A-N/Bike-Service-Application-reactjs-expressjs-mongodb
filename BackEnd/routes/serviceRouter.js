@@ -1,6 +1,6 @@
 import express from 'express';
 
-import { addService , showServiceToOwner , userService , history , particularServices , editUserStatus} from '../controllers/serviceController.js';
+import { addService , showServiceToOwner , userService , history , particularServices , editUserStatus , editUserReady} from '../controllers/serviceController.js';
 
 export const serviceRouter = express.Router();
 
@@ -22,3 +22,5 @@ serviceRouter.get('/getParticularService/:id',particularServices);
 
 // route for edit user service status
 serviceRouter.put('/editUserStatus/:id',editUserStatus);
+
+serviceRouter.put('/editUserReady/:id',editUserReady);

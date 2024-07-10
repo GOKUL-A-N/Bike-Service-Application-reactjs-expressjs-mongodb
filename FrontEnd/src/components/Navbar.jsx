@@ -2,81 +2,19 @@ import React,{useState} from 'react'
 import { Link } from 'react-router-dom';
 // import logo from '../assets/logo.png'
 const Navbar = () => {
-    const [showNavbar, setShowNavbar] = React.useState(false);
 
-  const handleShowNavbar = () => {
-    setShowNavbar(!showNavbar);
-  };
 
   return (
-    <nav className="navbar">
-      <div className="container">
-        <div className="menu-icon" onClick={handleShowNavbar}>
-          <Hamburger />
-        </div>
-        <div className={`nav-elements  ${showNavbar && "active"}`}>
-          <ul>
-            <li>
-              <Link to="/" >Re-Login</Link>
-            </li>
-            <li>
-              <Link to="/home">Home</Link>
-            </li>
-            <li>
-              <a href="/allbookings">All Bookings</a>
-            </li>
-            <li>
-              <Link to="/history">History</Link>
-            </li>
-            <li>
-              <Link to="/bookservice">Book Service</Link>
-            </li>
-          </ul>
-        </div>
-      </div>
+    <nav class="w-full flex items-center justify-center">
+        <ul class="list-none text-[8px] sm:text-[12px] md:text-[16px] flex items-center justify-center gap-5 p-3  bg-[#2ef171] text-black font-semibold w-full">
+            <Link to='/home'><li>Home</li></Link>
+            <Link to='/allbookings'><li>My Bookings</li></Link>
+            <Link to='/history'><li>History</li></Link>
+            <Link to='/bookservice'><li>Book Service</li></Link>
+            <Link to='/'><li>Logout</li></Link>
+        </ul>
     </nav>
-  
-  );
+  )
 }
-
-const Hamburger = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="52"
-    height="24"
-    viewBox="0 0 52 24"
-  >
-    <g id="Group_9" data-name="Group 9" transform="translate(-294 -47)">
-      <rect
-        id="Rectangle_3"
-        data-name="Rectangle 3"
-        width="42"
-        height="4"
-        rx="2"
-        transform="translate(304 47)"
-        fill="#574c4c"
-      />
-      <rect
-        id="Rectangle_5"
-        data-name="Rectangle 5"
-        width="42"
-        height="4"
-        rx="2"
-        transform="translate(304 67)"
-        fill="#574c4c"
-      />
-      <rect
-        id="Rectangle_4"
-        data-name="Rectangle 4"
-        width="52"
-        height="4"
-        rx="2"
-        transform="translate(294 57)"
-        fill="#574c4c"
-      />
-    </g>
-  </svg>
-  
-)
 
 export default Navbar

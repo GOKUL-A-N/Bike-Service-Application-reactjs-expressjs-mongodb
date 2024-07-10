@@ -188,3 +188,27 @@ export const editUserStatus = async (req, res) => {
         })
     }
 }
+
+// editing user status to ready for delievery
+export const editUserReady = async (req, res) => {
+    try{
+
+        const id = req.params.id;
+
+        const result = await serviceModel.findByIdAndUpdate(id,{"status":"ready for delievery"})
+
+        return res.status(200).send({
+            success: true,
+            message: "Updated user status",
+            result,
+        })
+
+    }catch(err){
+        console.log(err);
+        return res.status(500).send({
+            success: false,
+            message:"Error editing user status",
+            err,
+        })
+    }
+}

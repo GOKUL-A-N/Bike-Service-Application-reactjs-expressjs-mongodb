@@ -15,6 +15,7 @@ const ShowBookings = () => {
 
       if(data?.success){
         setServices(data?.serv)
+        id = data?.serv._id
         console.log(services);
       }
 
@@ -29,6 +30,11 @@ const ShowBookings = () => {
 
   const handleClick = async (id) => {
     await axios.put(`http://localhost:3000/service/editUserStatus/${id}`)
+    navigate("/ownerbookings")
+  }
+
+  const handleChange = async (id) => {
+    await axios.put(`http://localhost:3000/service/editUserReady/${id}`)
     navigate("/ownerbookings")
   }
 
@@ -47,10 +53,10 @@ const ShowBookings = () => {
                   key={h._id}
                   className=" rounded-md odd:bg-[#121212] even:bg-[#191919] text-[10px] sm:text-[13px] md:text-[16px] font-semibold tabledata"
                 >
-                  <td className="p-3 pr-28 ">{h.bikeName}</td>
-                  <td className="p-3 pr-28 ">{h.email}</td>
-                  <td className="p-3 pr-28 ">{h.service}</td>
-                  <td className="p-3 ">{h.expectedDate}</td>
+                  <td className="p-2 text-[8px] md:text-[15px]  md:pr-8 ">{h.bikeName}</td>
+                  <td className="p-2 text-[8px] md:text-[15px] md:pr-8 ">{h.email}</td>
+                  <td className="p-2 text-[8px] md:text-[15px] md:pr-8 ">{h.service}</td>
+                  <td className="p-2 ">{h.expectedDate}</td>
                   <td
                     className="p-3"
                     style={{
@@ -64,9 +70,11 @@ const ShowBookings = () => {
                   >
                     {h.status}
                   </td>
-                  
                   <td>
-                    <button className="p-3 hover:animate-pulse bg-[#2ef171] w-fit text-black font-semibold rounded-r-md" onClick={handleClick(h._id)}>Mark as completed</button>
+                    <button className="p-1 md:p-3 hover:animate-pulse bg-[#d2da34] w-fit text-black font-semibold" onClick={() => handleChange(h._id)}>ready</button>
+                  </td>
+                  <td>
+                    <button className="p-1 md:p-3 hover:animate-pulse bg-[#2ef171] w-fit text-black font-semibold rounded-r-md" onClick={() => handleClick(h._id)}>completed</button>
                   </td>
                 </tr>
               );

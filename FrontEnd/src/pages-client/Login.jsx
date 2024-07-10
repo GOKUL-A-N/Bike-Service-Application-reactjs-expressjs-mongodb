@@ -2,6 +2,7 @@ import React,{useState} from 'react'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'
 import {toast} from "react-hot-toast"
+import { Link } from 'react-router-dom';
 
 const Login = () => {
 
@@ -52,7 +53,7 @@ const Login = () => {
                 <input type='text' name='mobile' value={inputs.mobile} onChange={handleChange} placeholder='Mobile' className='bg-transparent outline-0 border-b-2 border-[#2ef171] ' /><br />
                 <input type='password' name='password' value={inputs.password} onChange={handleChange} placeholder='Password' className='bg-transparent outline-0 border-b-2 border-[#2ef171] ' /><br />
                 <button type='submit' className='pl-4 pr-4 m-3 pt-1 pb-1 bg-[#2ef171] rounded-md'>Login</button>
-                <p className='text-[12px]'>Don{"'"}t have an account?<span className='underline text-[#2ef171]'><a href="">Sign Up</a></span></p>
+                <p className='text-[12px]'>Don{"'"}t have an account?<span className='underline text-[#2ef171]'><Link to="/signup">Sign Up</Link></span>,or <span className='underline text-[#2ef171]'><Link to="/ownerLogin">admin</Link></span> </p>
             </form>
         </div>
     </div>
