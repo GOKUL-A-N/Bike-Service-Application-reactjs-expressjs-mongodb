@@ -1,6 +1,6 @@
 import express from 'express';
 import mongoose from 'mongoose';
-import { PORT,MongoDBURL } from './config.js';
+import "dotenv/config"
 import {userLoginRouter}  from './routes/userRouter.js';
 import { serviceRouter } from './routes/serviceRouter.js';
 import { ownerLoginRouter } from './routes/ownerRouter.js';
@@ -13,10 +13,14 @@ app.use(express.json());
 
 app.use(cors());
 
+const port = process.env.PORT || 5000;
+
 // declared for verifying the working of backend
 app.get('/', (req, res) => {
     res.send("Welcome Back Chief!")
 })
+
+
 
 
 // routes for user login
@@ -33,11 +37,11 @@ app.use('/owner',ownerLoginRouter);
 
 // connecting server to database and porting on localhost
 mongoose
-    .connect(MongoDBURL)
+    .connect(process.env.MongoDBURL)
     .then(() => {
         console.log("Connected");
-        app.listen(PORT,() => {
-            console.log(`App listening on port ${PORT}`);
+        app.listen(port,() => {
+            console.log(`App listening on port ${port}`);
         });
     })
     .catch(err => {
