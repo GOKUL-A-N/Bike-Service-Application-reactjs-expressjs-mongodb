@@ -1,6 +1,6 @@
 import express from 'express';
 import mongoose from 'mongoose';
-import "dotenv/config";
+import dotenv from "dotenv";
 import cookieParser from 'cookie-parser';
 import {userLoginRouter}  from './routes/userRouter.js';
 import { serviceRouter } from './routes/serviceRouter.js';
@@ -11,6 +11,8 @@ import http from "http";
 const app = express();
 
 app.use(cookieParser());
+
+dotenv.config()
 
 // declared for json data format
 app.use(express.json());
