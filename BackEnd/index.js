@@ -1,6 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
-import "dotenv/config"
+import "dotenv/config";
+import cookieParser from 'cookie-parser';
 import {userLoginRouter}  from './routes/userRouter.js';
 import { serviceRouter } from './routes/serviceRouter.js';
 import { ownerLoginRouter } from './routes/ownerRouter.js';
@@ -8,6 +9,8 @@ import cors from "cors";
 import http from "http";
 
 const app = express();
+
+app.use(cookieParser());
 
 // declared for json data format
 app.use(express.json());
