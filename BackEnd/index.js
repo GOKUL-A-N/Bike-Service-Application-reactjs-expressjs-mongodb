@@ -5,6 +5,7 @@ import {userLoginRouter}  from './routes/userRouter.js';
 import { serviceRouter } from './routes/serviceRouter.js';
 import { ownerLoginRouter } from './routes/ownerRouter.js';
 import cors from "cors";
+import http from "http";
 
 const app = express();
 
@@ -34,13 +35,15 @@ app.use('/service',serviceRouter);
 // routes for owner login
 app.use('/owner',ownerLoginRouter);
 
+const server = http.createServer(app);
+
 
 // connecting server to database and porting on localhost
 mongoose
     .connect(process.env.MongoDBURL)
     .then(() => {
         console.log("Connected");
-        app.listen(port,() => {
+        server.listen(port,() => {
             console.log(`App listening on port ${port}`);
         });
     })
